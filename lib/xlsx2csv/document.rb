@@ -7,7 +7,7 @@ class Xlsx2Csv::Document
   def strings
     extract!
     strings_filename = File.join(tmpdir, 'xl', 'sharedStrings.xml')
-    if File.exists?(strings_filename) #FIXME
+    if File.exist?(strings_filename) #FIXME
       Xlsx2Csv::Strings::File.new(strings_filename)
     else
       []
@@ -28,7 +28,7 @@ class Xlsx2Csv::Document
   end
 
   def cleanup
-    FileUtils.remove_dir(tmpdir) if Dir.exists?(tmpdir)
+    FileUtils.remove_dir(tmpdir) if Dir.exist?(tmpdir)
   end
 
   def self.open(filename)
@@ -47,7 +47,7 @@ private
   end
 
   def extract!
-    return true if Dir.exists?(tmpdir)
+    return true if Dir.exist?(tmpdir)
     command = "unzip #{@filename} xl/worksheets/\*.xml xl/\*.xml -d #{tmpdir} > /dev/null"
     system(command) || fail("Unable to extract #{@filename} to #{tmpdir}")
   end

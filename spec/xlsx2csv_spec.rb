@@ -12,7 +12,7 @@ RSpec.describe Xlsx2Csv do
 
         expect(File.read(options[:out])).to eq expected_csv
       ensure
-        File.unlink(options[:out]) if File.exists?(options[:out])
+        File.unlink(options[:out]) if File.exist?(options[:out])
       end
     end
   end
