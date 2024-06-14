@@ -4,10 +4,10 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 require 'xlsx2csv'
 require 'slop'
 
-options = Slop.parse do
-  on '-f', :file=, 'source XLSX file (required)'
-  on '-o', :out=, 'output file name'
-  on '-s', :sheet=, 'worksheet name to convert (first by default)'
+options = Slop.parse do |o|
+  o.string '-f', '--file', 'source XLSX file (required)', required: true
+  o.string '-o', '--out', 'output file name'
+  o.string '-s', '--sheet', 'worksheet name to convert (first by default)'
 end
 
 unless options.file?
