@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.license     = 'Nonstandard'
 
   spec.add_dependency 'ox', '~> 2.3'
-  spec.add_dependency 'slop', '~> 3.4'
+  spec.add_dependency 'slop', '~> 4.6'
 
   spec.add_development_dependency 'rspec', '~> 0'
 end
